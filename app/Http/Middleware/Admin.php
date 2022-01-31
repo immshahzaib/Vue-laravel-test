@@ -18,10 +18,10 @@ class Admin
     public function handle(Request $request, Closure $next)
     {
 
-        if($request->user()->is_admin != 1)
-        {
-            return response()->view('errors.custom', [], 500);
+        if (Auth::user() && Auth::user()->is_admin) {
+            return $next($request);
         }
-        return $next($request);
+        return response()->view('errors.custom', [], 500);
+
     }
 }
