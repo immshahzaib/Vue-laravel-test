@@ -23,3 +23,6 @@ This command will generate default Admin User, Company, Employee
 
 > ### Send Email
 If you want to send Email then add Credentials in .env file 
+
+> ### php artisan storage:link
+This command will linked to your storage folder for getting images
