@@ -18,6 +18,27 @@
                     </div>
 
                     <div class="card-body">
+
+                        <div class="col-sm-12" v-if="errors.length"><!-- col start -->
+                            <div class="alert alert-danger" role="alert">
+                                <h4 class="alert-heading">Some fields require!</h4>
+                                <div v-for="(arrEerror, arrIndex) in errors" :key="arrIndex">
+                                    <div v-for="(error, index) in arrEerror" :key="index">
+                                        <p class="mb-2">
+                                            {{ index }}-{{ error }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- validation con end -->
+
+                        <div class="col-sm-12" v-if="successFlag"><!-- col start -->
+                            <div class="alert alert-success" role="alert">
+                                <h4 class="alert-heading">Successfully Update!</h4>
+                            </div>
+                        </div><!-- validation con end -->
+
+
                         <form method="POST" @submit.prevent="updateEmployee" :action="`${url}/admin/employee`">
 
                             <div class="row mb-3">
@@ -109,6 +130,7 @@
         data(){
             return {
                 errors: [],
+                successFlag: false,
                 currentEmployee: "",
                 companies: "",
                 isLoading: false,
@@ -138,6 +160,7 @@
                     .then( response => {
                         if( response.data.code === 0 ){
                             this.isLoading = false;
+                            this.successFlag = true;
                         }
                         else{
                             this.isLoading = false;

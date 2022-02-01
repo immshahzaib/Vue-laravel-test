@@ -5398,6 +5398,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createCompanyComponent",
   props: {
@@ -5411,6 +5417,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       errors: [],
+      successFlag: false,
       currentCompany: "",
       isLoading: false,
       imageUrl: "",
@@ -5433,6 +5440,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         if (response.data.code === 0) {
           _this.isLoading = false;
+          _this.successFlag = true;
           _this.$refs.name.value = "";
           _this.$refs.email.value = "";
           _this.$refs.logo.value = "";
@@ -5579,6 +5587,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createCompanyComponent",
   props: {
@@ -5595,6 +5609,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       errors: [],
+      successFlag: false,
       currentCompany: "",
       isLoading: false,
       imageUrl: "",
@@ -5620,6 +5635,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         if (response.data.code === 0) {
           _this.isLoading = false;
+          _this.successFlag = true;
         } else {
           _this.isLoading = false;
         }
@@ -5801,6 +5817,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createEmployeeComponent",
   props: {
@@ -5814,6 +5836,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       errors: [],
+      successFlag: false,
       companies: "",
       isLoading: false,
       url: this.base_url,
@@ -5840,6 +5863,7 @@ __webpack_require__.r(__webpack_exports__);
       this.req.post('/admin/employee', data).then(function (response) {
         if (response.data.code === 0) {
           _this.isLoading = false;
+          _this.successFlag = true;
           _this.$refs.first_name.value = "";
           _this.$refs.last_name.value = "";
           _this.$refs.email.value = "";
@@ -6003,6 +6027,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "editEmployeeComponent",
   props: {
@@ -6019,6 +6064,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       errors: [],
+      successFlag: false,
       currentEmployee: "",
       companies: "",
       isLoading: false,
@@ -6047,6 +6093,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }).then(function (response) {
         if (response.data.code === 0) {
           _this.isLoading = false;
+          _this.successFlag = true;
         } else {
           _this.isLoading = false;
         }
@@ -29915,12 +29962,12 @@ var render = function () {
                   _c(
                     "div",
                     {
-                      staticClass: "alert alert-success",
+                      staticClass: "alert alert-danger",
                       attrs: { role: "alert" },
                     },
                     [
                       _c("h4", { staticClass: "alert-heading" }, [
-                        _vm._v("Well done!"),
+                        _vm._v("Some fields require!"),
                       ]),
                       _vm._v(" "),
                       _vm._l(_vm.errors, function (arrEerror, arrIndex) {
@@ -29947,6 +29994,10 @@ var render = function () {
                     2
                   ),
                 ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.successFlag
+              ? _c("div", { staticClass: "col-sm-12" }, [_vm._m(0)])
               : _vm._e(),
             _vm._v(" "),
             _c(
@@ -29983,7 +30034,7 @@ var render = function () {
                       },
                     }),
                     _vm._v(" "),
-                    _vm._m(0),
+                    _vm._m(1),
                   ]),
                 ]),
                 _vm._v(" "),
@@ -30009,7 +30060,7 @@ var render = function () {
                       },
                     }),
                     _vm._v(" "),
-                    _vm._m(1),
+                    _vm._m(2),
                   ]),
                 ]),
                 _vm._v(" "),
@@ -30041,7 +30092,7 @@ var render = function () {
                         })
                       : _vm._e(),
                     _vm._v(" "),
-                    _vm._m(2),
+                    _vm._m(3),
                   ]),
                 ]),
                 _vm._v(" "),
@@ -30076,6 +30127,20 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "alert alert-success", attrs: { role: "alert" } },
+      [
+        _c("h4", { staticClass: "alert-heading" }, [
+          _vm._v("Successfully Create!"),
+        ]),
+      ]
+    )
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -30182,12 +30247,12 @@ var render = function () {
                   _c(
                     "div",
                     {
-                      staticClass: "alert alert-success",
+                      staticClass: "alert alert-danger",
                       attrs: { role: "alert" },
                     },
                     [
                       _c("h4", { staticClass: "alert-heading" }, [
-                        _vm._v("Well done!"),
+                        _vm._v("Some fields require!"),
                       ]),
                       _vm._v(" "),
                       _vm._l(_vm.errors, function (arrEerror, arrIndex) {
@@ -30214,6 +30279,10 @@ var render = function () {
                     2
                   ),
                 ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.successFlag
+              ? _c("div", { staticClass: "col-sm-12" }, [_vm._m(0)])
               : _vm._e(),
             _vm._v(" "),
             _c(
@@ -30257,7 +30326,7 @@ var render = function () {
                       domProps: { value: _vm.currentCompany.name },
                     }),
                     _vm._v(" "),
-                    _vm._m(0),
+                    _vm._m(1),
                   ]),
                 ]),
                 _vm._v(" "),
@@ -30284,7 +30353,7 @@ var render = function () {
                       domProps: { value: _vm.currentCompany.email },
                     }),
                     _vm._v(" "),
-                    _vm._m(1),
+                    _vm._m(2),
                   ]),
                 ]),
                 _vm._v(" "),
@@ -30316,7 +30385,7 @@ var render = function () {
                         })
                       : _vm._e(),
                     _vm._v(" "),
-                    _vm._m(2),
+                    _vm._m(3),
                   ]),
                 ]),
                 _vm._v(" "),
@@ -30351,6 +30420,20 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "alert alert-success", attrs: { role: "alert" } },
+      [
+        _c("h4", { staticClass: "alert-heading" }, [
+          _vm._v("Successfully Update!"),
+        ]),
+      ]
+    )
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -30457,12 +30540,12 @@ var render = function () {
                   _c(
                     "div",
                     {
-                      staticClass: "alert alert-success",
+                      staticClass: "alert alert-danger",
                       attrs: { role: "alert" },
                     },
                     [
                       _c("h4", { staticClass: "alert-heading" }, [
-                        _vm._v("Well done!"),
+                        _vm._v("Some fields require!"),
                       ]),
                       _vm._v(" "),
                       _vm._l(_vm.errors, function (arrEerror, arrIndex) {
@@ -30489,6 +30572,10 @@ var render = function () {
                     2
                   ),
                 ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.successFlag
+              ? _c("div", { staticClass: "col-sm-12" }, [_vm._m(0)])
               : _vm._e(),
             _vm._v(" "),
             _c(
@@ -30711,7 +30798,22 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "alert alert-success", attrs: { role: "alert" } },
+      [
+        _c("h4", { staticClass: "alert-heading" }, [
+          _vm._v("Successfully Create!"),
+        ]),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 
@@ -30782,6 +30884,49 @@ var render = function () {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
+            _vm.errors.length
+              ? _c("div", { staticClass: "col-sm-12" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "alert alert-danger",
+                      attrs: { role: "alert" },
+                    },
+                    [
+                      _c("h4", { staticClass: "alert-heading" }, [
+                        _vm._v("Some fields require!"),
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.errors, function (arrEerror, arrIndex) {
+                        return _c(
+                          "div",
+                          { key: arrIndex },
+                          _vm._l(arrEerror, function (error, index) {
+                            return _c("div", { key: index }, [
+                              _c("p", { staticClass: "mb-2" }, [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(index) +
+                                    "-" +
+                                    _vm._s(error) +
+                                    "\n                                    "
+                                ),
+                              ]),
+                            ])
+                          }),
+                          0
+                        )
+                      }),
+                    ],
+                    2
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.successFlag
+              ? _c("div", { staticClass: "col-sm-12" }, [_vm._m(0)])
+              : _vm._e(),
+            _vm._v(" "),
             _c(
               "form",
               {
@@ -31014,7 +31159,22 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "alert alert-success", attrs: { role: "alert" } },
+      [
+        _c("h4", { staticClass: "alert-heading" }, [
+          _vm._v("Successfully Update!"),
+        ]),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 
